@@ -1,0 +1,20 @@
+.site-dash-modal-content {
+  padding: 2rem;
+  width: 400px;
+  box-shadow: 1px 1px 10px 3px #ccc;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.site-dash-modal-content .actions .site-tile-btn {
+  margin: 0 12px;
+}
+
+.site-dash-modal-content .actions .site-tile-btn:first-child {
+  margin-left: 0;
+}
+
+.site-dash--form-title {
+  font-size: 1rem;
+}

@@ -1,0 +1,17 @@
+.site-dash--texfield {
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 6px 16px;
+  font-size: 1rem;
+  min-width: 300px;
+}
+
+.site-dash--desc {
+  font-size: 12px;
+  color: #bbb;
+}
+
+.site-dash--form-item-wrapper {
+  margin-bottom: 1.5rem;
+}

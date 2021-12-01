@@ -1,0 +1,7 @@
+.site-dash-modal-content.delete-confirm-content .form-elements {
+  margin-bottom: 1.5rem;
+}
+
+.site-dash-modal-content.delete-confirm-content {
+  border: 2px solid red;
+}
