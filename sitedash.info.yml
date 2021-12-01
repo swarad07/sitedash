@@ -1,0 +1,5 @@
+name: Site Dashboard
+description: A single dashboard allowing you to view/manage multiple sites.
+package: Site Dashboard
+type: module
+core_version_requirement: ^8 || ^9
