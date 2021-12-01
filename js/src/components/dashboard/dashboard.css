@@ -1,0 +1,34 @@
+.site-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.site-tile {
+  background: #FBF3F3;
+  border-radius: 16px;
+  width: max-content;
+  min-width: 20rem;
+  padding: 1rem;
+}
+
+.site-tile--details {
+  display: grid;
+  grid-template-columns: 1fr 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.site-tile--details > div:first-child {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+}
+
+.site-tile--details > div:first-child > a {
+  grid-column: 2/3;
+}
+
+.site-tile--action {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.375rem;
+}

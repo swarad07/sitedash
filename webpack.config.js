@@ -22,7 +22,11 @@ const config = {
         exclude: /node_modules/,
         include: path.join(__dirname, 'js/src'),
         options: { presets: ['@babel/preset-env','@babel/preset-react'] },
-      }
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
     ],
   },
 };
