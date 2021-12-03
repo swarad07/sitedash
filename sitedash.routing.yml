@@ -5,3 +5,59 @@ sitedash.content:
     _title: 'Site Dashboard'
   requirements:
     _permission: 'access content'
+
+# Entity permissions.
+entity.sitedash_entity.canonical:
+  path: '/sitedash_entity/{sitedash_entity}'
+  defaults:
+    # Calls the view controller, defined in the annotation of the sitedash entity
+    _entity_view: 'sitedash_entity'
+    _title: 'Sitedash Content'
+  requirements:
+    # Calls the access controller of the entity, $operation 'view'
+    _entity_access: 'sitedash_entity.view'
+
+entity.sitedash_entity.collection:
+  path: '/sitedash_entity/list'
+  defaults:
+    # Calls the list controller, defined in the annotation of the sitedash entity.
+    _entity_list: 'sitedash_entity'
+    _title: 'Sitedash List'
+  requirements:
+    # Checks for permission directly.
+    _permission: 'administer sitedash entity'
+
+sitedash.sitedash_add:
+  path: '/sitedash_entity/add'
+  defaults:
+    # Calls the form.add controller, defined in the sitedash entity.
+    _entity_form: sitedash_entity.add
+    _title: 'Add Sitedash'
+  requirements:
+    _entity_create_access: 'sitedash_entity'
+
+entity.sitedash_entity.edit_form:
+  path: '/sitedash_entity/{sitedash_entity}/edit'
+  defaults:
+    # Calls the form.edit controller, defined in the sitedash entity.
+    _entity_form: sitedash_entity.edit
+    _title: 'Edit Sitedash'
+  requirements:
+    _entity_access: 'sitedash_entity.edit'
+
+entity.sitedash_entity.delete_form:
+  path: '/sitedash/{sitedash_entity}/delete'
+  defaults:
+    # Calls the form.delete controller, defined in the sitedash entity.
+    _entity_form: sitedash_entity.delete
+    _title: 'Delete Sitedash'
+  requirements:
+    _entity_access: 'sitedash_entity.delete'
+
+sitedash.sitedash_settings:
+  path: 'admin/structure/sitedash_entity_settings'
+  defaults:
+    _form: '\Drupal\sitedash\Form\SitedashSettingsForm'
+    _title: 'Sitedash Settings'
+  requirements:
+    _permission: 'administer sitedash entity'
