@@ -1,0 +1,5 @@
+entity.sitedash.add_form:
+  route_name: 'entity.sitedash.add_form'
+  title: 'Add sitedash'
+  appears_on:
+    - entity.sitedash.collection

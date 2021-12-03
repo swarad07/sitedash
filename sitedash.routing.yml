@@ -4,4 +4,36 @@ sitedash.content:
     _controller: '\Drupal\sitedash\Controller\SiteDashController::content'
     _title: 'Site Dashboard'
   requirements:
-    _permission: 'access content'
+    _permission: 'administer site configuration'
+
+entity.sitedash.collection:
+  path: '/admin/config/system/sitedash'
+  defaults:
+    _entity_list: 'sitedash'
+    _title: 'Sitedash configuration'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.sitedash.add_form:
+  path: '/admin/config/system/sitedash/add'
+  defaults:
+    _entity_form: 'sitedash.add'
+    _title: 'Add sitedash'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.sitedash.edit_form:
+  path: '/admin/config/system/sitedash/{sitedash}'
+  defaults:
+    _entity_form: 'sitedash.edit'
+    _title: 'Edit sitedash'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.sitedash.delete_form:
+  path: '/admin/config/system/sitedash/{sitedash}/delete'
+  defaults:
+    _entity_form: 'sitedash.delete'
+    _title: 'Delete sitedash'
+  requirements:
+    _permission: 'administer site configuration'

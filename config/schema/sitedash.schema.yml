@@ -1,0 +1,20 @@
+sitedash.sitedash.*:
+  type: config_entity
+  label: 'Sitedash config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    siteUrl:
+      type: string
+      label: 'Sitedash Site URL'
+    siteAPIUrl:
+      type: string
+      label: 'Sitedash Site API endpoint URL'
+    token:
+      type: string
+      label: 'Sitedash Site API token'
+

@@ -1,0 +1,5 @@
+entity.sitedash.collection:
+  title: 'Sitedash'
+  parent: system.admin_config_system
+  description: 'Configure sitedash'
+  route_name: entity.sitedash.collection
