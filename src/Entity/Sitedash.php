@@ -245,7 +245,7 @@ class Sitedash extends ContentEntityBase implements SitedashInterface {
       ->setDisplayConfigurable('view', TRUE);
 
     // Site API URL field of the sitedash.
-    $fields['siteAPIUrl'] = BaseFieldDefinition::create('list_string')
+    $fields['siteAPIUrl'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Site API URL'))
       ->setDescription(t('The API endpoint for the connector site.'))
       ->setSettings(array(
@@ -266,7 +266,7 @@ class Sitedash extends ContentEntityBase implements SitedashInterface {
       ->setDisplayConfigurable('view', TRUE);
 
     // Token field of the sitedash.
-    $fields['siteToken'] = BaseFieldDefinition::create('list_string')
+    $fields['siteToken'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Site API Token'))
       ->setDescription(t('The API Token for the connector site.'))
       ->setSettings(array(
