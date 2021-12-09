@@ -53,7 +53,7 @@ class SitedashListBuilder extends EntityListBuilder {
   public function buildRow(EntityInterface $entity) {
     /* @var $entity \Drupal\sitedash\Entity\Sitedash */
     $row['id'] = $entity->id();
-    $row['name'] = $entity->link();
+    $row['name'] = $entity->toLink();
     $row['siteUrl'] = $entity->siteUrl->value;
     return $row + parent::buildRow($entity);
   }

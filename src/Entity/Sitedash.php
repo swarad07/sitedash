@@ -6,7 +6,6 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityTypeInterface;
-use Drupal\Core\Entity\EntityChangedTrait;
 use Drupal\sitedash\SitedashInterface;
 use Drupal\user\UserInterface;
 
@@ -126,7 +125,6 @@ use Drupal\user\UserInterface;
  */
 class Sitedash extends ContentEntityBase implements SitedashInterface {
 
-  use EntityChangedTrait; // Implements methods defined by EntityChangedInterface.
 
   /**
    * {@inheritdoc}
