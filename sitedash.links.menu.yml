@@ -3,7 +3,7 @@ sitedash.admin.settings:
   title: Sitedash dashboard
   description: 'Sitedash dashboard'
   route_name:  sitedash.dashboard
-  parent: system.admin_config
+  parent: system.admin_config_ui
 
 entity.sitedash_entity.collection:
   title: 'Sitedash: Site Listing'
