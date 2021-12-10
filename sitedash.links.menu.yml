@@ -1,4 +1,9 @@
 # Define the menu links for this module
+sitedash.admin.settings:
+  title: Sitedash dashboard
+  description: 'Sitedash dashboard'
+  route_name:  sitedash.dashboard
+  parent: system.admin_config
 
 entity.sitedash_entity.collection:
   title: 'Sitedash: Site Listing'
