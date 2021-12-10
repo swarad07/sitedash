@@ -40,6 +40,12 @@ const SiteAddForm = ({ closeModalCallback, id, name, faviconUrl, url, endpoint, 
           placeholder="API Token"
           defaultValue={token}
         />
+        <TextField
+          name="site-favicon-url"
+          description="The Site faviconURL."
+          placeholder="Favicon URL"
+          defaultValue={faviconUrl}
+        />
       </div>
       <div className="actions">
         <button className="site-tile-btn primary" onClick={() => saveNewSite()} type="submit">Save</button>

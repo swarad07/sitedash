@@ -1,0 +1,11 @@
+view sitedash entity:
+  title: 'View Sitedash entity'
+add sitedash entity:
+  title: 'Add Sitedash entity'
+edit sitedash entity:
+  title: 'Edit Sitedash Entity'
+delete sitedash entity:
+  title: 'Delete Sitedash entity'
+administer sitedash entity:
+  title: 'Administer Sitedash entity'
+  restrict access: TRUE

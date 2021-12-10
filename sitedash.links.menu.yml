@@ -1,0 +1,18 @@
+# Define the menu links for this module
+sitedash.admin.settings:
+  title: Sitedash dashboard
+  description: 'Sitedash dashboard'
+  route_name:  sitedash.dashboard
+  parent: system.admin_config_ui
+
+entity.sitedash_entity.collection:
+  title: 'Sitedash: Site Listing'
+  route_name: entity.sitedash_entity.collection
+  description: 'List Sites'
+  parent: system.admin_structure
+  weight: 10
+sitedash_entity.admin.structure.settings:
+  title: Sitedash Settings
+  description: 'Configure Sitedash entity'
+  route_name:  sitedash.sitedash_settings
+  parent: system.admin_structure

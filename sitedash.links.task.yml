@@ -1,0 +1,22 @@
+# Define the 'local' links for the module
+
+sitedash.settings_tab:
+  route_name: sitedash.sitedash_settings
+  title: Settings
+  base_route: sitedash.sitedash_settings
+
+sitedash.view:
+  route_name: entity.sitedash_entity.canonical
+  base_route: entity.sitedash_entity.canonical
+  title: View
+
+sitedash.page_edit:
+  route_name: entity.sitedash_entity.edit_form
+  base_route: entity.sitedash_entity.canonical
+  title: Edit
+
+sitedash.delete_confirm:
+  route_name:  entity.sitedash_entity.delete_form
+  base_route:  entity.sitedash_entity.canonical
+  title: Delete
+  weight: 10
