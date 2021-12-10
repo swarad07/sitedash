@@ -204,6 +204,7 @@ class Sitedash extends ContentEntityBase implements SitedashInterface {
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
       ->setDescription(t('The name of the Sitedash entity.'))
+      ->setRequired(TRUE)
       ->setSettings(array(
         'default_value' => '',
         'max_length' => 255,
@@ -224,6 +225,7 @@ class Sitedash extends ContentEntityBase implements SitedashInterface {
     // Site URL field of the sitedash.
     $fields['siteUrl'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Site URL'))
+      ->setRequired(TRUE)
       ->setDescription(t('The site URL.'))
       ->setSettings(array(
         'default_value' => '',
@@ -245,6 +247,7 @@ class Sitedash extends ContentEntityBase implements SitedashInterface {
     // Site API URL field of the sitedash.
     $fields['siteAPIUrl'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Site API URL'))
+      ->setRequired(TRUE)
       ->setDescription(t('The API endpoint for the connector site.'))
       ->setSettings(array(
         'default_value' => '',
@@ -266,7 +269,29 @@ class Sitedash extends ContentEntityBase implements SitedashInterface {
     // Token field of the sitedash.
     $fields['siteToken'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Site API Token'))
+      ->setRequired(TRUE)
       ->setDescription(t('The API Token for the connector site.'))
+      ->setSettings(array(
+        'default_value' => '',
+        'max_length' => 255,
+        'text_processing' => 0,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => -5,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textfield',
+        'weight' => -5,
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
+    // Site favicon URL field of the sitedash.
+    $fields['siteFavicon'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Site favicon URL'))
+      ->setDescription(t('The favicon URL of the site.'))
       ->setSettings(array(
         'default_value' => '',
         'max_length' => 255,

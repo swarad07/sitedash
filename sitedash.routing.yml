@@ -1,10 +1,10 @@
-sitedash.content:
-  path: '/admin/site-dashboard'
+sitedash.dashboard:
+  path: '/admin/config/site-dashboard'
   defaults:
     _controller: '\Drupal\sitedash\Controller\SiteDashController::content'
-    _title: 'Site Dashboard'
+    _title: 'Sitedash Dashboard'
   requirements:
-    _permission: 'access content'
+    _permission: 'administer site configuration'
 
 # Entity permissions.
 entity.sitedash_entity.canonical:
