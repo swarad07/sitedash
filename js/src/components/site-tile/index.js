@@ -40,6 +40,7 @@ const SiteTile = ({id, name, faviconUrl, url, endpoint, token}) => {
           url={url}
           endpoint={endpoint}
           token={token}
+          faviconUrl={faviconUrl}
           closeModalCallback={closeAddSiteModal}
         />
       </Popup>

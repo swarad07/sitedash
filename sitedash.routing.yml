@@ -1,5 +1,5 @@
 sitedash.content:
-  path: '/admin/site-dashboard'
+  path: '/admin/config/site-dashboard'
   defaults:
     _controller: '\Drupal\sitedash\Controller\SiteDashController::content'
     _title: 'Site Dashboard'
