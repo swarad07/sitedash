@@ -7,6 +7,12 @@ const SiteAddForm = ({ closeModalCallback, id, name, faviconUrl, url, endpoint, 
   const [deleteSiteOpen, setDeleteSiteModalOpen] = useState(false);
   const closeDeleteSiteModal = () => setDeleteSiteModalOpen(false);
 
+  const saveNewSite = () => {
+    // @todo: Save new site API.
+    console.log('New site added!');
+    closeModalCallback();
+  };
+
   return (
     <div className="site-add-form">
       <div className="form-elements">
@@ -36,9 +42,12 @@ const SiteAddForm = ({ closeModalCallback, id, name, faviconUrl, url, endpoint, 
         />
       </div>
       <div className="actions">
-        <button className="site-tile-btn primary" type="submit">Save</button>
+        <button className="site-tile-btn primary" onClick={() => saveNewSite()} type="submit">Save</button>
         <button className="site-tile-btn secondary" onClick={() => closeModalCallback() }>Cancel</button>
-        <button className="site-tile-btn tertiary" onClick={() => setDeleteSiteModalOpen(o => !o)}>Delete Site</button>
+        {id !== undefined &&
+          <button className="site-tile-btn tertiary" onClick={() => setDeleteSiteModalOpen(o => !o)}>Delete
+            Site</button>
+        }
       </div>
       <Popup
         closeOnEscape
@@ -48,7 +57,7 @@ const SiteAddForm = ({ closeModalCallback, id, name, faviconUrl, url, endpoint, 
         open={deleteSiteOpen}
         onClose={closeDeleteSiteModal}
       >
-        <SiteDeleteConfirm closeModalCallback={closeDeleteSiteModal} />
+        <SiteDeleteConfirm closeModalCallback={closeModalCallback} closeDeleteSiteModal={closeDeleteSiteModal} />
       </Popup>
     </div>
   )
