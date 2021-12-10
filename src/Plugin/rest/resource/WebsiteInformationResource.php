@@ -145,7 +145,7 @@ class WebsiteInformationResource extends ResourceBase {
    */
   public function getHttpData($url, $token, $information) {
     try {
-      $response = $this->httpClient->post($url . 'website-information', [
+      $response = $this->httpClient->post($url . '/sitedash-connector/website-information', [
         'json' => [
           'token' => $token,
           'information' => $information,
