@@ -3,7 +3,7 @@ import TextField from '../textfield';
 import Popup from "reactjs-popup";
 import SiteDeleteConfirm from "../site-delete-confirm";
 
-const SiteAddForm = ({ closeModalCallback }) => {
+const SiteAddForm = ({ closeModalCallback, id, name, faviconUrl, url, endpoint, token }) => {
   const [deleteSiteOpen, setDeleteSiteModalOpen] = useState(false);
   const closeDeleteSiteModal = () => setDeleteSiteModalOpen(false);
 
@@ -14,16 +14,25 @@ const SiteAddForm = ({ closeModalCallback }) => {
           name="site-name"
           description="The Site Name."
           placeholder="Site Name"
+          defaultValue={name}
         />
         <TextField
           name="site-url"
           description="The Site URL."
           placeholder="Site URL"
+          defaultValue={url}
         />
         <TextField
           name="site-endpoint-url"
           description="The Site API Endpoint URL."
           placeholder="API Endpoint"
+          defaultValue={endpoint}
+        />
+        <TextField
+          name="site-token"
+          description="The Site API Token."
+          placeholder="API Token"
+          defaultValue={token}
         />
       </div>
       <div className="actions">
