@@ -10,6 +10,43 @@ const Dashboard = () => {
   const [addSiteOpen, setAddSiteModalOpen] = useState(false);
   const closeAddSiteModal = () => setAddSiteModalOpen(false);
 
+  // @todo: This is to be fetched from API or drupalSettings.
+  const siteList = [
+    {
+      "id": "1",
+      "name": "Mothercare",
+      "url": "https://www.mothercare.com.kw/en",
+      "endpoint": "https://www.mothercare.com.kw/en/api",
+      "favicon": "https://www.axelerant.com/themes/custom/axe/favicon.ico",
+      "token": "ABC123",
+    },
+    {
+      "id": "2",
+      "name": "HM",
+      "url": "https://kw.hm.com/en",
+      "endpoint": "https://kw.hm.com/en/api",
+      "favicon": "https://www.axelerant.com/themes/custom/axe/favicon.ico",
+      "token": "XYZ789",
+    },
+  ];
+
+  const getSiteList = () => {
+    let sites = [];
+    siteList.forEach((site) => {
+      sites.push(
+        <SiteTile
+          id={site.id}
+          name={site.name}
+          url={site.url}
+          endpoint={site.endpoint}
+          token={site.token}
+          faviconUrl={site.favicon}
+        />
+      );
+    });
+    return sites;
+  };
+
   return (
     <>
       <div className="site-dashboard-header">
@@ -32,24 +69,7 @@ const Dashboard = () => {
         </Popup>
       </div>
       <div className="site-list">
-        <SiteTile
-          id={1}
-          name="Site Name 1"
-          url="https://www.example.com"
-          faviconUrl="https://www.axelerant.com/themes/custom/axe/favicon.ico"
-        />
-        <SiteTile
-          id={2}
-          name="Site Name 2"
-          url="https://www.example.com"
-          faviconUrl="https://www.axelerant.com/themes/custom/axe/favicon.ico"
-        />
-        <SiteTile
-          id={3}
-          name="Site Name 3"
-          url="https://www.example.com"
-          faviconUrl="https://www.axelerant.com/themes/custom/axe/favicon.ico"
-        />
+        { getSiteList() }
       </div>
     </>
   );

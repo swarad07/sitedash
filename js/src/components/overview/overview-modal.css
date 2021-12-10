@@ -1,0 +1,8 @@
+.site-dash-modal-content.overview-modal-content {
+  width: 600px
+}
+
+.site-dash-modal-content.overview-modal-content .header {
+  display: flex;
+  justify-content: space-between;
+}
