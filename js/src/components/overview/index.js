@@ -19,7 +19,7 @@ const Overview = ({ closeOverviewModal }) => {
     <div className="overview-wrapper">
       <div className="header">
         <h2>Site Overview</h2>
-        <button className="site-tile-btn tertiary" onClick={() => closeOverviewModal}>Close</button>
+        <button className="site-tile-btn tertiary" onClick={() => closeOverviewModal()}>Close</button>
       </div>
       <div className="tabs">
         <ul>
