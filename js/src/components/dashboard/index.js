@@ -1,49 +1,50 @@
-import React, { useState } from 'react';
-import Popup from "reactjs-popup";
+import React, { useState, useEffect } from 'react';
+import Popup from 'reactjs-popup';
+import axios from 'axios';
 import './dashboard.css';
 import './buttons.css';
 import './modal.css';
 import SiteTile from '../site-tile';
-import SiteAddForm from "../site-add-form";
+import SiteAddForm from '../site-add-form';
 
 const Dashboard = () => {
   const [addSiteOpen, setAddSiteModalOpen] = useState(false);
   const closeAddSiteModal = () => setAddSiteModalOpen(false);
 
-  // @todo: This is to be fetched from API or drupalSettings.
-  const siteList = [
-    {
-      "id": "1",
-      "name": "Mothercare",
-      "url": "https://www.mothercare.com.kw/en",
-      "endpoint": "https://www.mothercare.com.kw/en/api",
-      "favicon": "https://www.axelerant.com/themes/custom/axe/favicon.ico",
-      "token": "ABC123",
-    },
-    {
-      "id": "2",
-      "name": "HM",
-      "url": "https://kw.hm.com/en",
-      "endpoint": "https://kw.hm.com/en/api",
-      "favicon": "https://www.axelerant.com/themes/custom/axe/favicon.ico",
-      "token": "XYZ789",
-    },
-  ];
+  // State for site API response.
+  const [siteList, setSiteList] = useState(null);
+
+  useEffect(() => {
+    axios.get('/jsonapi/sitedash_entity/sitedash_entity')
+      .then(function (response) {
+        // handle success
+        const { data } = response;
+        setSiteList(data);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }, []);
 
   const getSiteList = () => {
     let sites = [];
-    siteList.forEach((site) => {
-      sites.push(
-        <SiteTile
-          id={site.id}
-          name={site.name}
-          url={site.url}
-          endpoint={site.endpoint}
-          token={site.token}
-          faviconUrl={site.favicon}
-        />
-      );
-    });
+    if (siteList && siteList.meta.count > 0) {
+      siteList.data.forEach((site) => {
+        const { attributes } = site;
+        sites.push(
+          <SiteTile
+            id={site.id}
+            name={attributes.name}
+            url={attributes.siteUrl}
+            endpoint={attributes.siteAPIUrl}
+            token={attributes.siteToken}
+            faviconUrl={attributes.siteFavicon}
+          />
+        );
+      });
+    }
+
     return sites;
   };
 

@@ -19,12 +19,17 @@
 .site-tile--details {
   display: grid;
   grid-template-columns: 1fr 2.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .site-tile--details > div:first-child {
   display: grid;
   grid-template-columns: 2.5rem 1fr;
+  grid-column-gap: 12px;
+}
+
+.site-tile--details > div:first-child > img {
+  align-self: center;
 }
 
 .site-tile--details > div:first-child > a {
@@ -35,4 +40,5 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1.375rem;
+  padding-left: 52px;
 }
