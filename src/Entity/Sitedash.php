@@ -291,7 +291,7 @@ class Sitedash extends ContentEntityBase implements SitedashInterface {
     // Site favicon URL field of the sitedash.
     $fields['siteFavicon'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Site favicon URL'))
-      ->setDescription(t('The favicon URL of the site.'))
+      ->setDescription(t('The favicon URL of the site. This is just to recognise the site on the dashboard, it can be URL to site logo as well.'))
       ->setSettings(array(
         'default_value' => '',
         'max_length' => 255,
