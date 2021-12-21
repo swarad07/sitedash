@@ -34,7 +34,7 @@ const Dashboard = () => {
         const { attributes } = site;
         sites.push(
           <SiteTile
-            id={site.id}
+            id={attributes.drupal_internal__id}
             name={attributes.name}
             url={attributes.siteUrl}
             endpoint={attributes.siteAPIUrl}
