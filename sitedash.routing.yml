@@ -8,7 +8,7 @@ sitedash.dashboard:
 
 # Entity permissions.
 entity.sitedash_entity.canonical:
-  path: '/sitedash_entity/{sitedash_entity}'
+  path: '/admin/sitedash_entity/{sitedash_entity}'
   defaults:
     # Calls the view controller, defined in the annotation of the sitedash entity
     _entity_view: 'sitedash_entity'
@@ -18,7 +18,7 @@ entity.sitedash_entity.canonical:
     _entity_access: 'sitedash_entity.view'
 
 entity.sitedash_entity.collection:
-  path: '/sitedash_entity/list'
+  path: '/admin/sitedash_entity/list'
   defaults:
     # Calls the list controller, defined in the annotation of the sitedash entity.
     _entity_list: 'sitedash_entity'
@@ -28,7 +28,7 @@ entity.sitedash_entity.collection:
     _permission: 'administer sitedash entity'
 
 sitedash.sitedash_add:
-  path: '/sitedash_entity/add'
+  path: '/admin/sitedash_entity/add'
   defaults:
     # Calls the form.add controller, defined in the sitedash entity.
     _entity_form: sitedash_entity.add
@@ -37,7 +37,7 @@ sitedash.sitedash_add:
     _entity_create_access: 'sitedash_entity'
 
 entity.sitedash_entity.edit_form:
-  path: '/sitedash_entity/{sitedash_entity}/edit'
+  path: '/admin/sitedash_entity/{sitedash_entity}/edit'
   defaults:
     # Calls the form.edit controller, defined in the sitedash entity.
     _entity_form: sitedash_entity.edit
@@ -46,7 +46,7 @@ entity.sitedash_entity.edit_form:
     _entity_access: 'sitedash_entity.edit'
 
 entity.sitedash_entity.delete_form:
-  path: '/sitedash/{sitedash_entity}/delete'
+  path: '/admin/sitedash/{sitedash_entity}/delete'
   defaults:
     # Calls the form.delete controller, defined in the sitedash entity.
     _entity_form: sitedash_entity.delete
@@ -55,9 +55,18 @@ entity.sitedash_entity.delete_form:
     _entity_access: 'sitedash_entity.delete'
 
 sitedash.sitedash_settings:
-  path: 'admin/structure/sitedash_entity_settings'
+  path: '/admin/structure/sitedash_entity_settings'
   defaults:
     _form: '\Drupal\sitedash\Form\SitedashSettingsForm'
     _title: 'Sitedash Settings'
   requirements:
     _permission: 'administer sitedash entity'
+
+sitedash.endpoint:
+  path: '/sitedash/api/v1/operations'
+  defaults:
+    _controller: '\Drupal\sitedash\Controller\SiteDashAPIController::getData'
+    _title: 'Sitedash API'
+  methods:  [GET, POST, DELETE]
+  requirements:
+    _permission: 'administer site configuration'

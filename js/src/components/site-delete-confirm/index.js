@@ -1,12 +1,20 @@
 import React from 'react';
 import './site-delete-confirm.css';
+import axios from "axios";
 
-const SiteDeleteConfirm = ({ closeModalCallback, closeDeleteSiteModal }) => {
-  const deleteSiteCallback = () => {
-    // @todo: Call delete site API.
-    console.log('site deleted');
+const SiteDeleteConfirm = ({ id, closeModalCallback, closeDeleteSiteModal }) => {
+  const deleteSiteCallback = (e) => {
+    e.preventDefault();
+    const sitedash = {
+      'id': id,
+    };
+
+    axios.delete('/sitedash/api/v1/operations', { data: sitedash })
+    .then(response => console.log('site deleted'));
+
     closeDeleteSiteModal();
     closeModalCallback();
+    window.location.reload();
   };
 
   return (
@@ -17,7 +25,7 @@ const SiteDeleteConfirm = ({ closeModalCallback, closeDeleteSiteModal }) => {
         </div>
       </div>
       <div className="actions">
-        <button className="site-tile-btn tertiary" onClick={() => deleteSiteCallback()} type="submit">I Confirm, Delete this Site</button>
+        <button className="site-tile-btn tertiary" onClick={(e) => deleteSiteCallback(e)} type="submit">I Confirm, Delete this Site</button>
         <button className="site-tile-btn secondary" onClick={() => closeDeleteSiteModal() }>Cancel</button>
       </div>
     </div>

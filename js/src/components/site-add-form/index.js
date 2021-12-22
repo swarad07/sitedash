@@ -1,16 +1,35 @@
 import React, { useState } from 'react';
 import TextField from '../textfield';
-import Popup from "reactjs-popup";
-import SiteDeleteConfirm from "../site-delete-confirm";
+import Popup from 'reactjs-popup';
+import SiteDeleteConfirm from '../site-delete-confirm';
+import axios from 'axios';
 
 const SiteAddForm = ({ closeModalCallback, id, name, faviconUrl, url, endpoint, token }) => {
   const [deleteSiteOpen, setDeleteSiteModalOpen] = useState(false);
   const closeDeleteSiteModal = () => setDeleteSiteModalOpen(false);
 
-  const saveNewSite = () => {
-    // @todo: Save new site API.
-    console.log('New site added!');
-    closeModalCallback();
+  const saveNewSite = (e) => {
+    e.preventDefault();
+    if (id === undefined || id === null) {
+      const sitedash = {
+        'name': document.getElementById('site-dash-field-site-name').value,
+        'url': document.getElementById('site-dash-field-site-url').value,
+        'faviconUrl': document.getElementById('site-dash-field-site-favicon-url').value,
+        'endpoint': document.getElementById('site-dash-field-site-endpoint-url').value,
+        'token': document.getElementById('site-dash-field-site-token').value,
+      };
+      axios.post('/sitedash/api/v1/operations', sitedash)
+      .then(response => {
+        if (response.entity_saved_flag === 1) {
+          // Success.
+          console.log('Entity saved successfully!');
+        } else {
+          // Display error.
+        }
+      });
+      closeModalCallback();
+      window.location.reload();
+    }
   };
 
   return (
@@ -48,7 +67,7 @@ const SiteAddForm = ({ closeModalCallback, id, name, faviconUrl, url, endpoint, 
         />
       </div>
       <div className="actions">
-        <button className="site-tile-btn primary" onClick={() => saveNewSite()} type="submit">Save</button>
+        <button className="site-tile-btn primary" onClick={(e) => saveNewSite(e)} type="submit">Save</button>
         <button className="site-tile-btn secondary" onClick={() => closeModalCallback() }>Cancel</button>
         {id !== undefined &&
           <button className="site-tile-btn tertiary" onClick={() => setDeleteSiteModalOpen(o => !o)}>Delete
@@ -63,7 +82,7 @@ const SiteAddForm = ({ closeModalCallback, id, name, faviconUrl, url, endpoint, 
         open={deleteSiteOpen}
         onClose={closeDeleteSiteModal}
       >
-        <SiteDeleteConfirm closeModalCallback={closeModalCallback} closeDeleteSiteModal={closeDeleteSiteModal} />
+        <SiteDeleteConfirm id={id} closeModalCallback={closeModalCallback} closeDeleteSiteModal={closeDeleteSiteModal} />
       </Popup>
     </div>
   )
